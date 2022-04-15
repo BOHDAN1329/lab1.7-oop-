@@ -1,26 +1,31 @@
 #include "Time.h"
 
-void Time::init(unsigned int h, unsigned int m, unsigned int s)
+bool Time::init(unsigned int h, unsigned int m, unsigned int s)
 {
-	setHour(h);
-	setMinute(m);
-	setSecond(s);
+	
+	if (h >= 0 && h < 24 && m >= 0 && m < 60 && s >= 0 && s < 60) {
+		setHour(h);
+		setMinute(m);
+		setSecond(s);
+		return true;
+	
+	}
+	else
+		return false;	
+	
 }
 
-string Time::toString() const
-{
-
-	return string();
-}
 
 void Time::read()
 {
 	unsigned int h, m, s;
 
-	cout << "Hour = "; cin >> h;
-	cout << "Minute = "; cin >> m;
-	cout << "Second = "; cin >> s;
-	init(h,m,s);
+	do {
+		cout << "Hour = "; cin >> h;
+		cout << "Minute = "; cin >> m;
+		cout << "Second = "; cin >> s;
+	}
+	while(!init(h,m,s));
 }
 
 void Time::display() const
@@ -37,7 +42,7 @@ int Time::toSec()
 
 int Time::toMin()
 {
-	return toSec() / 60;
+	return ceil(toSec() / 60);
 }
 
  void Time::init(string str)
@@ -62,9 +67,14 @@ void Time::init(Time time)
 }
 
 
-int Time::difSec(Time time1)
+int Total(Time time1, Time time2)
 {
-	return (this->hour * 3600 + this->minute * 60 + this->second) - (time1.hour * 3600 + time1.minute * 60 + time1.second);
+	Time result;
+	result.hour = time2.hour - time1.hour;
+	result.minute = time2.minute - time1.minute;
+	result.second = time2.second - time1.second;
+	int res = result.toSec();
+	return res;
 }
 
 void Time::Sum(int sec)
@@ -92,13 +102,12 @@ bool Time::isGreater(Time time1, Time time2)
 
 bool Time::isLower(Time time1, Time time2)
 {
-	return((time1.hour * 3600 + time1.minute * 60 + time1.second) < (time2.hour * 3600 + time2.minute * 60 + time2.second));
+	return(!(isGreater(time1,time2)));
 }
 
 bool Time::Equal(Time time1, Time time2)
 {
 	return((time1.hour * 3600 + time1.minute * 60 + time1.second) == (time2.hour * 3600 + time2.minute * 60 + time2.second));
 }
-
 
 
