@@ -31,9 +31,9 @@ public:
 	friend int Total(Time time1, Time time2);
     void Sum(int sec);
 	void Dif(int sec);
-	bool isGreater(Time time1, Time time2);
-	bool isLower(Time time1, Time time2);
-	bool Equal(Time time1, Time time2);
+	friend bool isGreater(Time time1, Time time2);
+	friend bool isLower(Time time1, Time time2);
+	friend bool Equal(Time time1, Time time2);
 	
 };
 

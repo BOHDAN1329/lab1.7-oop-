@@ -1,6 +1,6 @@
 ﻿  Bill.cpp
   Source.cpp
   Time.cpp
-D:\ООП\lab1.7(oop)\Time.cpp(45,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+D:\ООП\lab1.7(oop)\Time.cpp(44,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   Generating Code...
   lab1.7(oop).vcxproj -> D:\ООП\lab1.7(oop)\Debug\lab1.7(oop).exe

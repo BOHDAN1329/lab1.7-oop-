@@ -15,7 +15,6 @@ bool Time::init(unsigned int h, unsigned int m, unsigned int s)
 	
 }
 
-
 void Time::read()
 {
 	unsigned int h, m, s;
@@ -66,7 +65,6 @@ void Time::init(Time time)
 	*this = time;
 }
 
-
 int Total(Time time1, Time time2)
 {
 	Time result;
@@ -95,17 +93,17 @@ void Time::Dif(int sec)
 	this->second -= sec;
 }
 
-bool Time::isGreater(Time time1, Time time2)
+bool isGreater(Time time1, Time time2)
 {
 	return((time1.hour * 3600 + time1.minute * 60 + time1.second) > (time2.hour * 3600 + time2.minute * 60 + time2.second));
 }
 
-bool Time::isLower(Time time1, Time time2)
+ bool isLower(Time time1, Time time2)
 {
 	return(!(isGreater(time1,time2)));
 }
 
-bool Time::Equal(Time time1, Time time2)
+ bool Equal(Time time1, Time time2)
 {
 	return((time1.hour * 3600 + time1.minute * 60 + time1.second) == (time2.hour * 3600 + time2.minute * 60 + time2.second));
 }
